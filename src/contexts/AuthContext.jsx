@@ -5,7 +5,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  // Ao montar, verifica localStorage para manter login persistente
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -13,9 +13,9 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  // Função para login fake (validação simples)
+
   function login(email, password) {
-    // Aqui você pode validar com backend ou lista fixa
+
     if (email === "gabriel@example.com" && password === "123456") {
       const userData = { email };
       setUser(userData);
@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
   );
 }
 
-// Hook para facilitar o uso do contexto
+
 export function useAuth() {
   return useContext(AuthContext);
 }
